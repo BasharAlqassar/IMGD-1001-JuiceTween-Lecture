@@ -39,6 +39,14 @@ func _physics_process(delta: float) -> void:
 #Ran when the ball hits the paddle  
 func hit_paddle(paddle : Paddle, collision_info : KinematicCollision2D,  delta: float) -> void:
 	velocity = velocity.bounce(collision_info.get_normal())
+	
+	
+	#Tween the paddle when hitting! 
+	var tween : Tween = create_tween() 
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_BOUNCE)
+	tween.tween_property(paddle, "scale", Vector2(1.0, 1.0), 0.2).from(Vector2(1.0, 0.6))
+
 
 #Ran when the ball hits a wall 
 func hit_wall(wall : Wall, collision_info : KinematicCollision2D, delta: float) -> void:
