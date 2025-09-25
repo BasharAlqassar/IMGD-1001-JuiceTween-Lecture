@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://4pejxubyd5d1"]
+[gd_scene load_steps=8 format=3 uid="uid://4pejxubyd5d1"]
 
 [ext_resource type="PackedScene" uid="uid://crocp3ak173y2" path="res://Scenes/Paddle.tscn" id="1_mc11i"]
+[ext_resource type="PackedScene" uid="uid://bdkf85vv4bmt1" path="res://Scenes/Ball.tscn" id="2_vjstj"]
+[ext_resource type="Script" uid="uid://c1xvdfnd46rkh" path="res://DEBUG/wall.gd" id="2_x8l4x"]
+[ext_resource type="PackedScene" uid="uid://c3dcxxlsaq8dr" path="res://Scenes/Block.tscn" id="3_lsr2u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mc11i"]
 size = Vector2(1152, 19)
@@ -33,17 +36,18 @@ position = Vector2(574, 604)
 
 [node name="LevelBounds" type="Node2D" parent="."]
 
-[node name="Walls" type="StaticBody2D" parent="LevelBounds"]
+[node name="Wall" type="StaticBody2D" parent="LevelBounds"]
+script = ExtResource("2_x8l4x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds/Walls"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds/Wall"]
 position = Vector2(576, -10)
 shape = SubResource("RectangleShape2D_mc11i")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelBounds/Walls"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelBounds/Wall"]
 position = Vector2(1164, 323.5)
 shape = SubResource("RectangleShape2D_vjstj")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="LevelBounds/Walls"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="LevelBounds/Wall"]
 position = Vector2(-12, 324)
 shape = SubResource("RectangleShape2D_vjstj")
 
@@ -53,3 +57,10 @@ shape = SubResource("RectangleShape2D_vjstj")
 position = Vector2(576, 674.5)
 shape = SubResource("RectangleShape2D_lsr2u")
 debug_color = Color(0.87058824, 0, 0, 0.41960785)
+
+[node name="Ball" parent="." instance=ExtResource("2_vjstj")]
+position = Vector2(720, 595)
+
+[node name="Block" parent="." instance=ExtResource("3_lsr2u")]
+position = Vector2(214, 46)
+block_hp = 1

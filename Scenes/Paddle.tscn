@@ -6,7 +6,7 @@
 size = Vector2(91, 21)
 
 [node name="Paddle" type="CharacterBody2D"]
-motion_mode = 1
+platform_on_leave = 2
 script = ExtResource("1_8wypp")
 
 [node name="TextureRect" type="ColorRect" parent="."]
