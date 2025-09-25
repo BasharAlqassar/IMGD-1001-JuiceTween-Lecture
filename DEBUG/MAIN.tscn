@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://4pejxubyd5d1"]
+
+[ext_resource type="PackedScene" uid="uid://crocp3ak173y2" path="res://Scenes/Paddle.tscn" id="1_mc11i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mc11i"]
+size = Vector2(1152, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjstj"]
+size = Vector2(24, 687)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsr2u"]
+size = Vector2(1152, 19)
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="TextureRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Paddle" parent="." instance=ExtResource("1_mc11i")]
+position = Vector2(574, 604)
+
+[node name="LevelBounds" type="Node2D" parent="."]
+
+[node name="Walls" type="StaticBody2D" parent="LevelBounds"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds/Walls"]
+position = Vector2(576, -10)
+shape = SubResource("RectangleShape2D_mc11i")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelBounds/Walls"]
+position = Vector2(1164, 323.5)
+shape = SubResource("RectangleShape2D_vjstj")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="LevelBounds/Walls"]
+position = Vector2(-12, 324)
+shape = SubResource("RectangleShape2D_vjstj")
+
+[node name="OutOfBounds" type="Area2D" parent="LevelBounds"]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="LevelBounds/OutOfBounds"]
+position = Vector2(576, 674.5)
+shape = SubResource("RectangleShape2D_lsr2u")
+debug_color = Color(0.87058824, 0, 0, 0.41960785)

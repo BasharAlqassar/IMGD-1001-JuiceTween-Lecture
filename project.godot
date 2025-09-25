@@ -11,5 +11,19 @@ config_version=5
 [application]
 
 config/name="IMGD 1001 JuiceTween Lecture"
+run/main_scene="uid://4pejxubyd5d1"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[file_customization]
+
+folder_colors={
+"res://Art/": "pink",
+"res://DEBUG/": "green",
+"res://Scenes/": "red",
+"res://Singletons/": "purple"
+}
