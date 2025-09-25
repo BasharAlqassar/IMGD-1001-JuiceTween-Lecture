@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2kftgwyb1mjd"]
+
+[ext_resource type="Script" uid="uid://bqk8rjlngw3vn" path="res://addons/BasharsUIToolkit/UI/tk_button.gd" id="1_w14nn"]
+
+[node name="TK_Button" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Toolkit Button"
+script = ExtResource("1_w14nn")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

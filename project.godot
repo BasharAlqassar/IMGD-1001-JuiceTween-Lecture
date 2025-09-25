@@ -29,7 +29,8 @@ folder_colors={
 "res://Art/": "pink",
 "res://DEBUG/": "green",
 "res://Scenes/": "red",
-"res://Singletons/": "purple"
+"res://Singletons/": "purple",
+"res://addons/": "purple"
 }
 
 [input]
