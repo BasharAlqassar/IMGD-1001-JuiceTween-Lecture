@@ -42,12 +42,12 @@ func hit_paddle(paddle : Paddle, collision_info : KinematicCollision2D,  delta: 
 	
 	
 	##Tween the paddle when hitting! 
-	#var tween : Tween = create_tween() 
-	#tween.set_ease(Tween.EASE_IN_OUT)
-	#tween.set_trans(Tween.TRANS_BOUNCE)
-	#tween.tween_property(paddle, "scale", Vector2(1.0, 1.0), 0.2).from(Vector2(1.0, 0.6))
-	#
-	#ball_hit_anything()
+	var tween : Tween = create_tween() 
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(paddle, "scale", Vector2(1.0, 1.0), 0.4).from(Vector2(1.0, 0.2))
+	
+	ball_hit_anything()
 
 
 #Ran when the ball hits a wall 
@@ -69,8 +69,8 @@ func hit_block(block : Block, collision_info : KinematicCollision2D, delta: floa
 func ball_hit_anything():
 	
 	##Tween the ball when it hits something!
-	#var tween : Tween = create_tween() 
-	#tween.set_ease(Tween.EASE_IN_OUT)
-	#tween.set_trans(Tween.TRANS_BOUNCE)
-	#tween.tween_property($TextureRect, "scale", Vector2(1.0, 1.0), 0.2).from(Vector2(1.5, 1.5))
+	var tween : Tween = create_tween() 
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_BOUNCE)
+	tween.tween_property($TextureRect, "scale", Vector2(1.0, 1.0), 0.2).from(Vector2(1.5, 1.5))
 	pass

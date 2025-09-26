@@ -29,6 +29,6 @@ func destroy_block():
 	self.queue_free()
 	
 	##Add a throw away block to the current scene! 
-	#var throw_visual := throw_away_refrence.instantiate()
-	#throw_visual.global_position = self.global_position
-	#get_tree().current_scene.add_child(throw_visual)
+	var throw_visual := throw_away_refrence.instantiate()
+	throw_visual.global_position = self.global_position
+	get_tree().current_scene.add_child(throw_visual)

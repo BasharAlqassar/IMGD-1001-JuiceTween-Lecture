@@ -12,6 +12,12 @@ func _ready() -> void:
 	
 	self.apply_impulse(Vector2(random_force_x, random_force_y))
 	self.add_constant_torque(10000)
+	
+	
+	
+	
+	$TextureRect.color = Color(randf_range(0.0, 1.0), randf_range(0.0, 1.0), randf_range(0.0, 1.0))
+	
 
 
 
