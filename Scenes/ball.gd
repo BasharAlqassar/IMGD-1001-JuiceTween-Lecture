@@ -6,6 +6,8 @@ extends CharacterBody2D
 
 @export var inital_speed := 130
 
+@export var camera : Camera2D
+
 
 func _ready() -> void:
 	velocity = Vector2(inital_speed, inital_speed)
@@ -73,4 +75,7 @@ func ball_hit_anything():
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_BOUNCE)
 	tween.tween_property($TextureRect, "scale", Vector2(1.0, 1.0), 0.2).from(Vector2(1.5, 1.5))
-	pass
+	
+	
+	##Shake the camera!
+	camera.add_camera_shake(0.3)
