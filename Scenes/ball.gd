@@ -4,7 +4,7 @@ extends CharacterBody2D
 #How much damage this ball does 
 @export var ball_damage = 1
 
-@export var inital_speed := 130
+@export var inital_speed := 160
 
 @export var camera : Camera2D
 
@@ -41,6 +41,8 @@ func _physics_process(delta: float) -> void:
 #Ran when the ball hits the paddle  
 func hit_paddle(paddle : Paddle, collision_info : KinematicCollision2D,  delta: float) -> void:
 	velocity = velocity.bounce(collision_info.get_normal())
+	
+	velocity.x = (paddle.velocity.x + velocity.x) / 2
 	
 	
 	##Tween the paddle when hitting! 
