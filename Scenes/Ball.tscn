@@ -27,3 +27,4 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_rmwm4")
 
 [node name="BallTrail" parent="." instance=ExtResource("2_eb1ap")]
+visible = false
