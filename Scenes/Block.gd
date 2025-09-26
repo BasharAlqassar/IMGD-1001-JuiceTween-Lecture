@@ -12,6 +12,35 @@ var throw_away_refrence = preload("res://Art/TechArt/ThrowAwayBlock.tscn")
 
 
 
+var destination_position : Vector2
+
+func _ready() -> void:
+	
+	#Disable visiblity and collsion
+	self.visible = false
+	$CollisionShape2D.disabled = true
+	
+	
+	#Store Editor position 
+	destination_position = self.global_position
+	
+	#Create a random spawn interval and wait that time
+	var spawn_delay := randf_range(0.5, 1.0)
+	await get_tree().create_timer(spawn_delay).timeout
+	
+	self.visible = true
+	
+	#Elastic Tween to the intended position 
+	var tween : Tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(self, "global_position", destination_position, 1.2).from(Vector2(destination_position.x, destination_position.y + 100))
+	
+	await tween.finished
+	$CollisionShape2D.disabled = false
+	
+
+
 #Handles when a ball hits this block
 func hit_block_with_ball(ball : Ball):
 	
