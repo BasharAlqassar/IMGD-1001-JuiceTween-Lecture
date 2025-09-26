@@ -12,7 +12,7 @@ func _ready() -> void:
 	var random_force_y = randf_range(-5, -10) * 10
 	
 	self.apply_impulse(Vector2(random_force_x, random_force_y))
-	self.add_constant_torque(10000)
+	self.add_constant_torque(10000 * sign(random_force_x))
 	
 	$TextureRect.color = Color(randf_range(0.0, 1.0), randf_range(0.0, 1.0), randf_range(0.0, 1.0))
 	
